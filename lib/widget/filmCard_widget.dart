@@ -22,8 +22,20 @@ class FilmCard extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.network(
-              'https://image.tmdb.org/t/p/w500$url',
+            Stack(
+              children: [
+                Image.network(
+                  'https://image.tmdb.org/t/p/w500$url',
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.favorite,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  onPressed: () {},
+                )
+              ],
             ),
             SizedBox(height: 3),
             Text(

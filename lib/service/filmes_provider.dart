@@ -5,8 +5,18 @@ import 'package:dio/dio.dart';
 class FilmesProvider extends ChangeNotifier {
   List<Filmes> _filmes;
 
+  String _categoria;
+
+  get categoria => _categoria;
+
+  void criarCategoria({String categoria}) {
+    _categoria = categoria;
+    notifyListeners();
+  }
+
   FilmesProvider.init() {
-    getFilmes();
+    _categoria = 'Filmes Populares';
+    getFilmes(movieOrTv: 'movie');
   }
 
   List<Filmes> get devolverFilmes => _filmes;
@@ -16,10 +26,10 @@ class FilmesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<List<Filmes>> getFilmes() async {
+  Future<List<Filmes>> getFilmes({String movieOrTv}) async {
     try {
       Response response = await Dio().get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=d506ee3d7782362d88e5b3e94401251c&page=1',
+        'https://api.themoviedb.org/3/$movieOrTv/popular?api_key=d506ee3d7782362d88e5b3e94401251c&page=1',
       );
 
       final json = response.data['results'];
