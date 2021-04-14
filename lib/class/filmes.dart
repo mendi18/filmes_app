@@ -14,6 +14,6 @@ class Filmes {
   }
 
   final String title;
-  final double vote_average;
+  final dynamic vote_average;
   final String poster_path;
 }

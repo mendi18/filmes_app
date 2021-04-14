@@ -1,3 +1,4 @@
+import 'package:filmes_app/pages/film_details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,12 +17,16 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => FilmesProvider(),
+          create: (context) => FilmesProvider.init(),
         )
       ],
       child: MaterialApp(
         theme: ThemeData.light(),
-        home: HomePage(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => HomePage(),
+          '/filmPage': (context) => FilmPage(),
+        },
       ),
     );
   }

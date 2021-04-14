@@ -3,6 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
 class FilmesProvider extends ChangeNotifier {
+  List<Filmes> _filmes;
+
+  FilmesProvider.init() {
+    getFilmes();
+  }
+
+  List<Filmes> get devolverFilmes => _filmes;
+
+  void criarFilmes({List<Filmes> filmes}) {
+    _filmes = filmes;
+    notifyListeners();
+  }
+
   Future<List<Filmes>> getFilmes() async {
     try {
       Response response = await Dio().get(
@@ -14,6 +27,8 @@ class FilmesProvider extends ChangeNotifier {
       List<Filmes> filmes = json
           .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson))
           .toList();
+
+      criarFilmes(filmes: filmes);
     } catch (e) {
       print(e);
       return [];
