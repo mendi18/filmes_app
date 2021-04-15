@@ -1,4 +1,6 @@
 import 'package:filmes_app/pages/film_details.dart';
+import 'package:filmes_app/pages/searchPage.dart';
+import 'package:filmes_app/service/search_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +20,10 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => FilmesProvider.init(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SearchProvider(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData.light(),
@@ -26,6 +31,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => HomePage(),
           '/filmPage': (context) => FilmPage(),
+          '/searchPage': (context) => SearchPage(),
         },
       ),
     );

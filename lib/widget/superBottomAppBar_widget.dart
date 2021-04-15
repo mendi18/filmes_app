@@ -34,6 +34,7 @@ class SuperBottomAppBar extends StatelessWidget {
             icon: Icon(Icons.search),
             onPressed: () {
               filmesProvider.criarCategoria(categoria: 'Pesquisar');
+              Navigator.pushNamed(context, '/searchPage');
             },
           )
         ],
