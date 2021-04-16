@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
     final filmesProvider = Provider.of<FilmesProvider>(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         centerTitle: true,
         title: Text('${filmesProvider.categoria}'),
       ),

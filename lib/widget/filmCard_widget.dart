@@ -1,7 +1,4 @@
-import 'package:filmes_app/pages/film_details.dart';
-import 'package:filmes_app/service/filmes_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class FilmCard extends StatelessWidget {
   FilmCard({this.movie, this.nota, this.url});
