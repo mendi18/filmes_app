@@ -3,8 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
 class FilmesProvider extends ChangeNotifier {
-  List<Filmes> _filmes;
+  // navegacao entre paginas
+  int _indexPage;
 
+  get indexPage => _indexPage;
+
+  void criarindexPage(int index) {
+    _indexPage = index;
+    notifyListeners();
+  }
+
+  //escolher a categoria. movie ou tv
   String _categoria;
 
   get categoria => _categoria;
@@ -14,15 +23,39 @@ class FilmesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  //inicializar o administar o getfilmes
+  List<Filmes> _filmes;
+
   FilmesProvider.init() {
     _categoria = 'Filmes Populares';
+    _indexPage = 0;
     getFilmes(movieOrTv: 'movie');
   }
 
-  List<Filmes> get devolverFilmes => _filmes;
+  List<Filmes> get devolverFilmes {
+    return _filmes;
+  }
 
   void criarFilmes({List<Filmes> filmes}) {
     _filmes = filmes;
+    notifyListeners();
+  }
+
+  //criar e adiministar lista de favoritos
+
+  List<Filmes> _listaFavoritos = [];
+
+  get listaFavoritos => _listaFavoritos;
+
+  void criarListaFavoritos(Filmes filmesAdicionado) {
+    _listaFavoritos.add(filmesAdicionado);
+    print(_listaFavoritos);
+    notifyListeners();
+  }
+
+  void retirarListaFavoritos(Filmes filmesAdicionado) {
+    _listaFavoritos.remove(filmesAdicionado);
+    print(_listaFavoritos);
     notifyListeners();
   }
 

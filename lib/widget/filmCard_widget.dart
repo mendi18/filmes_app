@@ -1,12 +1,22 @@
+import 'package:filmes_app/class/filmes.dart';
+import 'package:filmes_app/service/filmes_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class FilmCard extends StatelessWidget {
-  FilmCard({this.movie, this.nota, this.url});
+class FilmCard extends StatefulWidget {
+  FilmCard({this.movie, this.nota, this.url, this.filme});
 
   final String url;
   final String movie;
   final String nota;
+  final Filmes filme;
 
+  @override
+  _FilmCardState createState() => _FilmCardState();
+}
+
+class _FilmCardState extends State<FilmCard> {
+  Color cor = Colors.white;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -22,21 +32,33 @@ class FilmCard extends StatelessWidget {
             Stack(
               children: [
                 Image.network(
-                  'https://image.tmdb.org/t/p/w500$url',
+                  'https://image.tmdb.org/t/p/w500${widget.url}',
                 ),
                 IconButton(
                   icon: Icon(
                     Icons.favorite,
-                    color: Colors.white,
+                    color: cor,
                     size: 30,
                   ),
-                  onPressed: () {},
-                )
+                  onPressed: () {
+                    if (cor == Colors.white) {
+                      cor = Colors.red;
+                      setState(() {});
+                      Provider.of<FilmesProvider>(context, listen: false)
+                          .criarListaFavoritos(widget.filme);
+                    } else {
+                      cor = Colors.white;
+                      setState(() {});
+                      Provider.of<FilmesProvider>(context, listen: false)
+                          .retirarListaFavoritos(widget.filme);
+                    }
+                  },
+                ),
               ],
             ),
             SizedBox(height: 3),
             Text(
-              '$movie',
+              '${widget.movie}',
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: TextStyle(
@@ -46,7 +68,7 @@ class FilmCard extends StatelessWidget {
             ),
             SizedBox(height: 5),
             Text(
-              '$nota',
+              '${widget.nota}',
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.blueGrey,
