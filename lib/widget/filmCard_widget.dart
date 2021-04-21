@@ -7,13 +7,15 @@ import 'package:filmes_app/class/filmes.dart';
 import 'package:filmes_app/service/filmes_provider.dart';
 
 class FilmCard extends StatelessWidget {
-  FilmCard({this.movie, this.nota, this.url, this.filme, this.id});
+  FilmCard(
+      {this.movie, this.nota, this.url, this.filme, this.id, this.movieOrtv});
 
   final String url;
   final String movie;
   final String nota;
   final Filmes filme;
   final String id;
+  final String movieOrtv;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,7 @@ class FilmCard extends StatelessWidget {
           ],
         ),
         onTap: () {
-          a.getDetalhes(id: id);
+          a.getDetalhes(id: id, movieOrtv: movieOrtv);
           Navigator.pushNamed(context, '/filmPage');
         },
       ),

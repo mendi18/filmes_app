@@ -12,10 +12,10 @@ class FilmesDetalhesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<FilmesDetalhes> getDetalhes({String id}) async {
+  Future<FilmesDetalhes> getDetalhes({String id, String movieOrtv}) async {
     try {
       Response response = await Dio().get(
-          'https://api.themoviedb.org/3/movie/$id?api_key=d506ee3d7782362d88e5b3e94401251c&language=en-US');
+          'https://api.themoviedb.org/3/$movieOrtv/$id?api_key=d506ee3d7782362d88e5b3e94401251c&language=en-US');
 
       final json = Map<String, dynamic>.from(response.data);
 

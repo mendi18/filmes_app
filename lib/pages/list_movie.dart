@@ -25,6 +25,7 @@ class ListaMovie extends StatelessWidget {
                 nota: data.devolverFilmes[index].vote_average.toString(),
                 filme: data.devolverFilmes[index],
                 id: data.devolverFilmes[index].id.toString(),
+                movieOrtv: data.devolverFilmes[index].movieOrTv,
               ),
             )
           : Center(child: CircularProgressIndicator()),

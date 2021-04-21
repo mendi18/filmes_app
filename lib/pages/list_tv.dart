@@ -25,6 +25,7 @@ class ListaTV extends StatelessWidget {
                 nota: data.devolverTv[index].vote_average.toString(),
                 filme: data.devolverTv[index],
                 id: data.devolverTv[index].id.toString(),
+                movieOrtv: data.devolverTv[index].movieOrTv,
               ),
             )
           : Center(child: CircularProgressIndicator()),

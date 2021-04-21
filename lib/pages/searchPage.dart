@@ -55,7 +55,8 @@ class SearchPage extends StatelessWidget {
                       nota: data.devolverFilmesBuscados[index].vote_average
                           .toString(),
                       filme: data.devolverFilmesBuscados[index],
-                      id: data.devolverFilmesBuscados[index].id,
+                      id: data.devolverFilmesBuscados[index].id.toString(),
+                      movieOrtv: data.devolverFilmesBuscados[index].movieOrTv,
                     );
                   },
                 ),

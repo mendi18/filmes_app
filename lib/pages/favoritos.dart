@@ -25,6 +25,7 @@ class Favoritos extends StatelessWidget {
                 nota: data.listaFavoritos[index].vote_average.toString(),
                 filme: data.listaFavoritos[index],
                 id: data.listaFavoritos[index].id.toString(),
+                movieOrtv: data.listaFavoritos[index].movieOrTv,
               ),
             )
           : Center(child: CircularProgressIndicator()),

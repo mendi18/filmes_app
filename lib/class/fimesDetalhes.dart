@@ -10,7 +10,7 @@ class FilmesDetalhes {
 
   factory FilmesDetalhes.fromJson(Map<dynamic, dynamic> json) {
     final backdrop_path = json['backdrop_path'].toString();
-    final original_title = json['original_title'].toString();
+    final original_title = json['original_title'] ?? json['name'].toString();
     final overview = json['overview'].toString();
     final release_date = json['release_date'].toString();
     final revenue = json['revenue'].toString();

@@ -21,8 +21,10 @@ class SearchProvider extends ChangeNotifier {
 
       final json = response.data['results'];
 
+      String test = 'o';
+
       List<Filmes> filmesBuscados = json
-          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson))
+          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, test))
           .toList();
 
       criarFilmesBuscados(filmesBuscados: filmesBuscados);
