@@ -16,7 +16,6 @@ class SuperBottomAppBar extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.movie_filter_outlined),
             onPressed: () {
-              filmesProvider.getFilmes(movieOrTv: 'movie');
               filmesProvider.criarCategoria(categoria: 'Filmes Populares');
               filmesProvider.criarindexPage(0);
             },
@@ -24,9 +23,8 @@ class SuperBottomAppBar extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.live_tv_rounded),
             onPressed: () {
-              filmesProvider.getFilmes(movieOrTv: 'tv');
               filmesProvider.criarCategoria(categoria: 'Series Populares');
-              filmesProvider.criarindexPage(0);
+              filmesProvider.criarindexPage(1);
             },
           ),
           IconButton(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:filmes_app/widget/filmCard_widget.dart';
 import 'package:filmes_app/service/search_provider.dart';
 
@@ -53,6 +54,8 @@ class SearchPage extends StatelessWidget {
                       movie: data.devolverFilmesBuscados[index].title,
                       nota: data.devolverFilmesBuscados[index].vote_average
                           .toString(),
+                      filme: data.devolverFilmesBuscados[index],
+                      id: data.devolverFilmesBuscados[index].id,
                     );
                   },
                 ),

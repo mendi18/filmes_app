@@ -6,6 +6,7 @@ import 'package:filmes_app/pages/film_details.dart';
 import 'package:filmes_app/pages/home.dart';
 import 'package:filmes_app/service/search_provider.dart';
 import 'package:filmes_app/service/filmes_provider.dart';
+import 'package:filmes_app/service/filmesDetales_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => SearchProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FilmesDetalhesProvider(),
         ),
       ],
       child: MaterialApp(

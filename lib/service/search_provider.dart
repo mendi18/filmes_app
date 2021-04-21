@@ -1,6 +1,7 @@
-import 'package:filmes_app/class/filmes.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+
+import 'package:filmes_app/class/filmes.dart';
 
 class SearchProvider extends ChangeNotifier {
   List<Filmes> _filmesBuscados;

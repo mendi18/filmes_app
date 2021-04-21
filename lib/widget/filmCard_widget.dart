@@ -1,24 +1,27 @@
-import 'package:filmes_app/class/filmes.dart';
-import 'package:filmes_app/service/filmes_provider.dart';
+import 'package:filmes_app/class/fimesDetalhes.dart';
+import 'package:filmes_app/service/filmesDetales_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class FilmCard extends StatefulWidget {
-  FilmCard({this.movie, this.nota, this.url, this.filme});
+import 'package:filmes_app/class/filmes.dart';
+import 'package:filmes_app/service/filmes_provider.dart';
+
+class FilmCard extends StatelessWidget {
+  FilmCard({this.movie, this.nota, this.url, this.filme, this.id});
 
   final String url;
   final String movie;
   final String nota;
   final Filmes filme;
+  final String id;
 
-  @override
-  _FilmCardState createState() => _FilmCardState();
-}
-
-class _FilmCardState extends State<FilmCard> {
-  Color cor = Colors.white;
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<FilmesProvider>(context);
+    bool isSaved = provider.listaFavoritos.contains(filme);
+
+    final a = Provider.of<FilmesDetalhesProvider>(context);
+
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
@@ -32,25 +35,21 @@ class _FilmCardState extends State<FilmCard> {
             Stack(
               children: [
                 Image.network(
-                  'https://image.tmdb.org/t/p/w500${widget.url}',
+                  'https://image.tmdb.org/t/p/w500${url}',
                 ),
                 IconButton(
                   icon: Icon(
                     Icons.favorite,
-                    color: cor,
+                    color: isSaved ? Colors.red : Colors.white,
                     size: 30,
                   ),
                   onPressed: () {
-                    if (cor == Colors.white) {
-                      cor = Colors.red;
-                      setState(() {});
+                    if (isSaved) {
                       Provider.of<FilmesProvider>(context, listen: false)
-                          .criarListaFavoritos(widget.filme);
+                          .retirarListaFavoritos(filme);
                     } else {
-                      cor = Colors.white;
-                      setState(() {});
                       Provider.of<FilmesProvider>(context, listen: false)
-                          .retirarListaFavoritos(widget.filme);
+                          .criarListaFavoritos(filme);
                     }
                   },
                 ),
@@ -58,7 +57,7 @@ class _FilmCardState extends State<FilmCard> {
             ),
             SizedBox(height: 3),
             Text(
-              '${widget.movie}',
+              '${movie}',
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: TextStyle(
@@ -68,7 +67,7 @@ class _FilmCardState extends State<FilmCard> {
             ),
             SizedBox(height: 5),
             Text(
-              '${widget.nota}',
+              '${nota}',
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.blueGrey,
@@ -78,6 +77,7 @@ class _FilmCardState extends State<FilmCard> {
           ],
         ),
         onTap: () {
+          a.getDetalhes(id: id);
           Navigator.pushNamed(context, '/filmPage');
         },
       ),
