@@ -22,7 +22,7 @@ class FilmesDetalhes {
       original_title: original_title,
       overview: overview,
       release_date: release_date,
-      revenue: revenue,
+      revenue: double.parse(revenue) > 0 ? revenue : '---',
       vote_average: vote_average,
       poster_path: poster_path,
     );

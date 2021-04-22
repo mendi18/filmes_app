@@ -17,8 +17,7 @@ class FilmPage extends StatelessWidget {
         builder: (context, data, child) => data.filmesDetalhes != null
             ? Container(
                 color: Colors.purple,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                child: ListView(
                   children: [
                     Stack(
                       children: [
@@ -74,6 +73,65 @@ class FilmPage extends StatelessWidget {
                           fontSize: 20,
                           color: Colors.white,
                         ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Data de Lancamento:',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      '${data.filmesDetalhes.release_date}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 30, right: 30),
+                      height: 30,
+                      child: Divider(color: Colors.black),
+                    ),
+                    Text(
+                      'Nota:',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      '${data.filmesDetalhes.vote_average}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 30, right: 30),
+                      height: 30,
+                      child: Divider(color: Colors.black),
+                    ),
+                    Text(
+                      'Bilheteria:',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      '${data.filmesDetalhes.revenue}',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
                       ),
                     ),
                   ],
