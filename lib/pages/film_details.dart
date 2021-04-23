@@ -1,4 +1,5 @@
 import 'package:filmes_app/service/filmesDetales_provider.dart';
+import 'package:filmes_app/widget/similares_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -134,6 +135,21 @@ class FilmPage extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
+                    Container(
+                      padding: EdgeInsets.only(left: 30, right: 30),
+                      height: 30,
+                      child: Divider(color: Colors.black),
+                    ),
+                    Text(
+                      'Recomendacoes',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Similares(),
                   ],
                 ),
               )

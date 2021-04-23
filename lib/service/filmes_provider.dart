@@ -82,10 +82,10 @@ class FilmesProvider extends ChangeNotifier {
 
       final json = response.data['results'];
 
-      String test = 'movie';
+      String media_type = 'movie';
 
       List<Filmes> filmes = json
-          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, test))
+          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, media_type))
           .toList();
 
       criarFilmes(filmes: filmes);
@@ -103,10 +103,10 @@ class FilmesProvider extends ChangeNotifier {
 
       final json = response.data['results'];
 
-      String test = 'tv';
+      String media_type = 'tv';
 
       List<Filmes> filmes = json
-          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, test))
+          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, media_type))
           .toList();
 
       criarTv(tv: filmes);

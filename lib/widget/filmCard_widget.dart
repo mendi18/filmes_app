@@ -1,10 +1,10 @@
-import 'package:filmes_app/class/fimesDetalhes.dart';
-import 'package:filmes_app/service/filmesDetales_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:filmes_app/class/filmes.dart';
+import 'package:filmes_app/service/filmesDetales_provider.dart';
+import 'package:filmes_app/service/similar_provider.dart';
 import 'package:filmes_app/service/filmes_provider.dart';
+import 'package:filmes_app/class/filmes.dart';
 
 class FilmCard extends StatelessWidget {
   FilmCard(
@@ -23,6 +23,7 @@ class FilmCard extends StatelessWidget {
     bool isSaved = provider.listaFavoritos.contains(filme);
 
     final a = Provider.of<FilmesDetalhesProvider>(context);
+    final b = Provider.of<SimilarProvider>(context);
 
     return Card(
       shape: RoundedRectangleBorder(
@@ -36,9 +37,7 @@ class FilmCard extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Image.network(
-                  'https://image.tmdb.org/t/p/w500${url}',
-                ),
+                imagePoster(url),
                 IconButton(
                   icon: Icon(
                     Icons.favorite,
@@ -80,9 +79,18 @@ class FilmCard extends StatelessWidget {
         ),
         onTap: () {
           a.getDetalhes(id: id, movieOrtv: movieOrtv);
+          b.getFilmesSimilares(id: id, movieOrTv: movieOrtv);
           Navigator.pushNamed(context, '/filmPage');
         },
       ),
     );
+  }
+}
+
+Widget imagePoster(String url) {
+  if (url == 'images/image.png') {
+    return Image.asset('$url');
+  } else {
+    return Image.network('https://image.tmdb.org/t/p/w500${url}');
   }
 }
