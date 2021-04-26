@@ -64,20 +64,18 @@ class FilmesProvider extends ChangeNotifier {
 
   void criarListaFavoritos(Filmes filmesAdicionado) {
     _listaFavoritos.add(filmesAdicionado);
-    print(_listaFavoritos);
     notifyListeners();
   }
 
   void retirarListaFavoritos(Filmes filmesAdicionado) {
     _listaFavoritos.remove(filmesAdicionado);
-    print(_listaFavoritos);
     notifyListeners();
   }
 
   Future<List<Filmes>> getFilmes({String page}) async {
     try {
       Response response = await Dio().get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=d506ee3d7782362d88e5b3e94401251c&page=$page',
+        'https://api.themoviedb.org/3/movie/popular?api_key=0e685fd77fb3d76874a3ac26e0db8a4b&page=$page',
       );
 
       final json = response.data['results'];
@@ -98,7 +96,7 @@ class FilmesProvider extends ChangeNotifier {
   Future<List<Filmes>> getTV({String page}) async {
     try {
       Response response = await Dio().get(
-        'https://api.themoviedb.org/3/tv/popular?api_key=d506ee3d7782362d88e5b3e94401251c&page=$page',
+        'https://api.themoviedb.org/3/tv/popular?api_key=0e685fd77fb3d76874a3ac26e0db8a4b&page=$page',
       );
 
       final json = response.data['results'];

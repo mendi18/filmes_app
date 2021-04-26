@@ -41,7 +41,7 @@ class SearchPage extends StatelessWidget {
       body: Consumer<SearchProvider>(
         builder: (context, data, child) => data.devolverFilmesBuscados != null
             ? GridView.count(
-                childAspectRatio: (50 / 85),
+                childAspectRatio: (50 / 89),
                 mainAxisSpacing: 10.0,
                 crossAxisSpacing: 10,
                 crossAxisCount: 2,

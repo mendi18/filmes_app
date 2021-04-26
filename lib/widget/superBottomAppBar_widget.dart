@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:filmes_app/service/filmes_provider.dart';
 
 class SuperBottomAppBar extends StatelessWidget {
+  const SuperBottomAppBar({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final filmesProvider = Provider.of<FilmesProvider>(context);

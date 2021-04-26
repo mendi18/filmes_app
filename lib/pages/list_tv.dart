@@ -16,7 +16,7 @@ class ListaTV extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
-                childAspectRatio: (50 / 85),
+                childAspectRatio: (50 / 89),
               ),
               itemCount: data.devolverTv.length,
               itemBuilder: (context, index) => FilmCard(

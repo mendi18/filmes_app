@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:filmes_app/pages/searchPage.dart';
 import 'package:filmes_app/pages/film_details.dart';
 import 'package:filmes_app/pages/home.dart';
+
 import 'package:filmes_app/service/similar_provider.dart';
 import 'package:filmes_app/service/search_provider.dart';
 import 'package:filmes_app/service/filmes_provider.dart';

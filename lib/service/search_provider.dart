@@ -16,11 +16,12 @@ class SearchProvider extends ChangeNotifier {
   Future<List<Filmes>> getSearchFilmes({String buscar}) async {
     try {
       Response response = await Dio().get(
-        'https://api.themoviedb.org/3/search/multi?api_key=d506ee3d7782362d88e5b3e94401251c&language=en-US&query=$buscar&page=1&include_adult=false',
+        'https://api.themoviedb.org/3/search/multi?api_key=0e685fd77fb3d76874a3ac26e0db8a4b&language=en-US&query=$buscar&page=1&include_adult=false',
       );
 
       final json = response.data['results'];
 
+      //enviar qualquer coisa (nao faz diferenca)
       String media_type = 'o';
 
       List<Filmes> filmesBuscados = json

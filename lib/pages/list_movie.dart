@@ -16,7 +16,7 @@ class ListaMovie extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
-                childAspectRatio: (50 / 85),
+                childAspectRatio: (50 / 89),
               ),
               itemCount: data.devolverFilmes.length,
               itemBuilder: (context, index) => FilmCard(
