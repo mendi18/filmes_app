@@ -25,63 +25,61 @@ class FilmCard extends StatelessWidget {
     final a = Provider.of<FilmesDetalhesProvider>(context);
     final b = Provider.of<SimilarProvider>(context);
 
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
-        ),
-      ),
-      child: InkWell(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Stack(
-              children: [
-                imagePoster(url),
-                IconButton(
-                  icon: Icon(
-                    Icons.favorite,
-                    color: isSaved ? Colors.red : Colors.white,
-                    size: 30,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15.0),
+      child: Card(
+        child: InkWell(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Stack(
+                children: [
+                  imagePoster(url),
+                  IconButton(
+                    icon: Icon(
+                      Icons.favorite,
+                      color: isSaved ? Colors.red : Colors.white,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      if (isSaved) {
+                        Provider.of<FilmesProvider>(context, listen: false)
+                            .retirarListaFavoritos(filme);
+                      } else {
+                        Provider.of<FilmesProvider>(context, listen: false)
+                            .criarListaFavoritos(filme);
+                      }
+                    },
                   ),
-                  onPressed: () {
-                    if (isSaved) {
-                      Provider.of<FilmesProvider>(context, listen: false)
-                          .retirarListaFavoritos(filme);
-                    } else {
-                      Provider.of<FilmesProvider>(context, listen: false)
-                          .criarListaFavoritos(filme);
-                    }
-                  },
+                ],
+              ),
+              SizedBox(height: 3),
+              Text(
+                '${movie}',
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: TextStyle(
+                  letterSpacing: 0.5,
+                  fontWeight: FontWeight.bold,
                 ),
-              ],
-            ),
-            SizedBox(height: 3),
-            Text(
-              '${movie}',
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: TextStyle(
-                letterSpacing: 0.5,
-                fontWeight: FontWeight.bold,
               ),
-            ),
-            SizedBox(height: 5),
-            Text(
-              '${nota}',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.blueGrey,
-                fontWeight: FontWeight.bold,
-              ),
-            )
-          ],
+              SizedBox(height: 5),
+              Text(
+                '${nota}',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.blueGrey,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            ],
+          ),
+          onTap: () {
+            a.getDetalhes(id: id, movieOrtv: movieOrtv);
+            b.getFilmesSimilares(id: id, movieOrTv: movieOrtv);
+            Navigator.pushNamed(context, '/filmPage');
+          },
         ),
-        onTap: () {
-          a.getDetalhes(id: id, movieOrtv: movieOrtv);
-          b.getFilmesSimilares(id: id, movieOrTv: movieOrtv);
-          Navigator.pushNamed(context, '/filmPage');
-        },
       ),
     );
   }
