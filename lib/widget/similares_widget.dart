@@ -1,5 +1,5 @@
 import 'package:filmes_app/service/similar_provider.dart';
-import 'package:filmes_app/widget/filmCard_widget.dart';
+import 'package:filmes_app/widget/film_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

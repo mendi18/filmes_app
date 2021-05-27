@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:filmes_app/service/filmes_provider.dart';
-import 'package:filmes_app/widget/filmCard_widget.dart';
+import 'package:filmes_app/widget/film_card_widget.dart';
 
 class ListaTV extends StatelessWidget {
   const ListaTV({Key key}) : super(key: key);

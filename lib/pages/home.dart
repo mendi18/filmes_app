@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.purple,
         centerTitle: true,
-        title: Text('${Provider.of<FilmesProvider>(context).categoria}'),
+        title: Text(Provider.of<FilmesProvider>(context).categoria),
       ),
       body: escolherPagina(index),
       bottomNavigationBar: SuperBottomAppBar(),

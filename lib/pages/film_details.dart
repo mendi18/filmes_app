@@ -48,7 +48,7 @@ class FilmPage extends StatelessWidget {
                     ),
                     SizedBox(height: 15),
                     Text(
-                      '${data.filmesDetalhes.originalTitle}',
+                      data.filmesDetalhes.originalTitle,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 30,
@@ -68,7 +68,7 @@ class FilmPage extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        '${data.filmesDetalhes.overview}',
+                        data.filmesDetalhes.overview,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
@@ -86,7 +86,7 @@ class FilmPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${data.filmesDetalhes.releaseDate}',
+                      data.filmesDetalhes.releaseDate,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -107,7 +107,7 @@ class FilmPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${data.filmesDetalhes.voteAverage}',
+                      data.filmesDetalhes.voteAverage,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -128,7 +128,7 @@ class FilmPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${data.filmesDetalhes.revenue}',
+                      data.filmesDetalhes.revenue,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,

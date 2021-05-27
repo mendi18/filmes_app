@@ -55,7 +55,7 @@ class FilmCard extends StatelessWidget {
               ),
               SizedBox(height: 3),
               Text(
-                '${movie}',
+                movie,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 style: TextStyle(
@@ -65,7 +65,7 @@ class FilmCard extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Text(
-                '${nota}',
+                nota,
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.blueGrey,
@@ -87,7 +87,7 @@ class FilmCard extends StatelessWidget {
 
 Widget imagePoster(String url) {
   if (url == 'images/image.png') {
-    return Image.asset('$url');
+    return Image.asset(url);
   } else {
     return Image.network('https://image.tmdb.org/t/p/w500${url}');
   }
