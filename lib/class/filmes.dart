@@ -1,30 +1,26 @@
 class Filmes {
   Filmes(
-      {this.movieOrTv,
-      this.id,
-      this.title,
-      this.vote_average,
-      this.poster_path});
+      {this.movieOrTv, this.id, this.title, this.voteAverage, this.posterPath});
 
-  factory Filmes.fromJson(Map<String, dynamic> json, String media_type) {
+  factory Filmes.fromJson(Map<String, dynamic> json, String mediaType) {
     final title = json['original_title'] ?? json['original_name'];
-    final vote_average = json['vote_average'];
-    final poster_path = json['poster_path'];
+    final voteAverage = json['vote_average'];
+    final posterPath = json['poster_path'];
     final id = json['id'];
-    final movieOrTv = json['media_type'] ?? media_type;
+    final movieOrTv = json['media_type'] ?? mediaType;
 
     return Filmes(
       title: title,
-      vote_average: vote_average,
-      poster_path: poster_path == null ? 'images/image.png' : poster_path,
+      voteAverage: voteAverage,
+      posterPath: posterPath ?? 'images/image.png',
       id: id,
       movieOrTv: movieOrTv,
     );
   }
 
   final String title;
-  final dynamic vote_average;
-  final String poster_path;
+  final dynamic voteAverage;
+  final String posterPath;
   final dynamic id;
   final String movieOrTv;
 }

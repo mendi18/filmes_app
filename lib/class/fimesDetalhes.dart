@@ -1,39 +1,39 @@
 class FilmesDetalhes {
   FilmesDetalhes(
-      {this.poster_path,
-      this.backdrop_path,
-      this.original_title,
+      {this.posterPath,
+      this.backdropPath,
+      this.originalTitle,
       this.overview,
-      this.release_date,
+      this.releaseDate,
       this.revenue,
-      this.vote_average});
+      this.voteAverage});
 
   factory FilmesDetalhes.fromJson(Map<dynamic, dynamic> json) {
-    final backdrop_path = json['backdrop_path'].toString();
-    final original_title = json['original_title'] ?? json['name'].toString();
+    final backdropPath = json['backdrop_path'].toString();
+    final originalTitle = json['original_title'] ?? json['name'].toString();
     final overview = json['overview'].toString();
-    final release_date =
+    final releaseDate =
         json['release_date'] ?? json['first_air_date'].toString();
     final revenue = json['revenue'];
-    final vote_average = json['vote_average'].toString();
-    final poster_path = json['poster_path'].toString();
+    final voteAverage = json['vote_average'].toString();
+    final posterPath = json['poster_path'].toString();
 
     return FilmesDetalhes(
-      backdrop_path: backdrop_path,
-      original_title: original_title,
+      backdropPath: backdropPath,
+      originalTitle: originalTitle,
       overview: overview,
-      release_date: release_date,
+      releaseDate: releaseDate,
       revenue: revenue == null || revenue == 0 ? '---' : revenue,
-      vote_average: vote_average,
-      poster_path: poster_path,
+      voteAverage: voteAverage,
+      posterPath: posterPath,
     );
   }
 
-  final String backdrop_path;
-  final String original_title;
+  final String backdropPath;
+  final String originalTitle;
   final String overview;
-  final String release_date;
+  final String releaseDate;
   final dynamic revenue;
-  final String vote_average;
-  final String poster_path;
+  final String voteAverage;
+  final String posterPath;
 }

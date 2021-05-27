@@ -1,4 +1,4 @@
-import 'package:filmes_app/service/filmesDetales_provider.dart';
+import 'package:filmes_app/service/filmes_detalhes_provider.dart';
 import 'package:filmes_app/widget/similares_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +23,7 @@ class FilmPage extends StatelessWidget {
                     Stack(
                       children: [
                         Image.network(
-                          'https://image.tmdb.org/t/p/w500${data.filmesDetalhes.backdrop_path}',
+                          'https://image.tmdb.org/t/p/w500${data.filmesDetalhes.backdropPath}',
                         ),
                         Positioned(
                           left: 15,
@@ -39,7 +39,7 @@ class FilmPage extends StatelessWidget {
                               ),
                             ),
                             child: Image.network(
-                              'https://image.tmdb.org/t/p/w500${data.filmesDetalhes.poster_path}',
+                              'https://image.tmdb.org/t/p/w500${data.filmesDetalhes.posterPath}',
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -48,7 +48,7 @@ class FilmPage extends StatelessWidget {
                     ),
                     SizedBox(height: 15),
                     Text(
-                      '${data.filmesDetalhes.original_title}',
+                      '${data.filmesDetalhes.originalTitle}',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 30,
@@ -86,7 +86,7 @@ class FilmPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${data.filmesDetalhes.release_date}',
+                      '${data.filmesDetalhes.releaseDate}',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -107,7 +107,7 @@ class FilmPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${data.filmesDetalhes.vote_average}',
+                      '${data.filmesDetalhes.voteAverage}',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,

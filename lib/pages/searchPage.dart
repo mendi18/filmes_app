@@ -49,9 +49,9 @@ class SearchPage extends StatelessWidget {
                   data.devolverFilmesBuscados.length,
                   (index) {
                     return FilmCard(
-                      url: data.devolverFilmesBuscados[index].poster_path,
+                      url: data.devolverFilmesBuscados[index].posterPath,
                       movie: data.devolverFilmesBuscados[index].title,
-                      nota: data.devolverFilmesBuscados[index].vote_average
+                      nota: data.devolverFilmesBuscados[index].voteAverage
                           .toString(),
                       filme: data.devolverFilmesBuscados[index],
                       id: data.devolverFilmesBuscados[index].id.toString(),

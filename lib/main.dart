@@ -8,7 +8,7 @@ import 'package:filmes_app/pages/home.dart';
 import 'package:filmes_app/service/similar_provider.dart';
 import 'package:filmes_app/service/search_provider.dart';
 import 'package:filmes_app/service/filmes_provider.dart';
-import 'package:filmes_app/service/filmesDetales_provider.dart';
+import 'package:filmes_app/service/filmes_detalhes_provider.dart';
 
 void main() {
   runApp(MyApp());

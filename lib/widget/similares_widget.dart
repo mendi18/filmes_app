@@ -21,9 +21,9 @@ class Similares extends StatelessWidget {
               ),
               itemCount: data.filmesSimilares.length,
               itemBuilder: (context, index) => FilmCard(
-                url: data.filmesSimilares[index].poster_path,
+                url: data.filmesSimilares[index].posterPath,
                 movie: data.filmesSimilares[index].title,
-                nota: data.filmesSimilares[index].vote_average.toString(),
+                nota: data.filmesSimilares[index].voteAverage.toString(),
                 filme: data.filmesSimilares[index],
                 id: data.filmesSimilares[index].id.toString(),
                 movieOrtv: data.filmesSimilares[index].movieOrTv,

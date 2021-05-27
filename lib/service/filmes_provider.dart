@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 
 import 'package:filmes_app/class/filmes.dart';
 
+import '../base_url.dart';
+
 class FilmesProvider extends ChangeNotifier {
   FilmesProvider.init() {
     _categoria = 'Filmes Populares';
@@ -75,15 +77,16 @@ class FilmesProvider extends ChangeNotifier {
   Future<List<Filmes>> getFilmes({String page}) async {
     try {
       Response response = await Dio().get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=0e685fd77fb3d76874a3ac26e0db8a4b&page=$page',
+        baseUrl +
+            '/movie/popular?api_key=0e685fd77fb3d76874a3ac26e0db8a4b&page=$page',
       );
 
       final json = response.data['results'];
 
-      String media_type = 'movie';
+      String mediaType = 'movie';
 
       List<Filmes> filmes = json
-          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, media_type))
+          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, mediaType))
           .toList();
 
       criarFilmes(filmes: filmes);
@@ -96,15 +99,16 @@ class FilmesProvider extends ChangeNotifier {
   Future<List<Filmes>> getTV({String page}) async {
     try {
       Response response = await Dio().get(
-        'https://api.themoviedb.org/3/tv/popular?api_key=0e685fd77fb3d76874a3ac26e0db8a4b&page=$page',
+        baseUrl +
+            '/tv/popular?api_key=0e685fd77fb3d76874a3ac26e0db8a4b&page=$page',
       );
 
       final json = response.data['results'];
 
-      String media_type = 'tv';
+      String mediaType = 'tv';
 
       List<Filmes> filmes = json
-          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, media_type))
+          .map<Filmes>((filmesJson) => Filmes.fromJson(filmesJson, mediaType))
           .toList();
 
       criarTv(tv: filmes);

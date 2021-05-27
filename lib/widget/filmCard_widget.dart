@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:filmes_app/service/filmesDetales_provider.dart';
+import 'package:filmes_app/service/filmes_detalhes_provider.dart';
 import 'package:filmes_app/service/similar_provider.dart';
 import 'package:filmes_app/service/filmes_provider.dart';
 import 'package:filmes_app/class/filmes.dart';

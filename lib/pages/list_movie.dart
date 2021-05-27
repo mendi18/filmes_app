@@ -20,9 +20,9 @@ class ListaMovie extends StatelessWidget {
               ),
               itemCount: data.devolverFilmes.length,
               itemBuilder: (context, index) => FilmCard(
-                url: data.devolverFilmes[index].poster_path,
+                url: data.devolverFilmes[index].posterPath,
                 movie: data.devolverFilmes[index].title,
-                nota: data.devolverFilmes[index].vote_average.toString(),
+                nota: data.devolverFilmes[index].voteAverage.toString(),
                 filme: data.devolverFilmes[index],
                 id: data.devolverFilmes[index].id.toString(),
                 movieOrtv: data.devolverFilmes[index].movieOrTv,
