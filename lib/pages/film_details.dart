@@ -86,7 +86,7 @@ class FilmPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      data.filmesDetalhes.releaseDate,
+                      data.filmesDetalhes.releaseDate.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -107,7 +107,7 @@ class FilmPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      data.filmesDetalhes.voteAverage,
+                      data.filmesDetalhes.voteAverage.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -128,7 +128,7 @@ class FilmPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      data.filmesDetalhes.revenue,
+                      data.filmesDetalhes.revenue.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,

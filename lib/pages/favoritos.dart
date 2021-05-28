@@ -20,12 +20,7 @@ class Favoritos extends StatelessWidget {
               ),
               itemCount: data.listaFavoritos.length,
               itemBuilder: (context, index) => FilmCard(
-                url: data.listaFavoritos[index].posterPath,
-                movie: data.listaFavoritos[index].title,
-                nota: data.listaFavoritos[index].voteAverage.toString(),
                 filme: data.listaFavoritos[index],
-                id: data.listaFavoritos[index].id.toString(),
-                movieOrtv: data.listaFavoritos[index].movieOrTv,
               ),
             )
           : Center(child: CircularProgressIndicator()),

@@ -7,15 +7,9 @@ import 'package:filmes_app/service/filmes_provider.dart';
 import 'package:filmes_app/class/filmes.dart';
 
 class FilmCard extends StatelessWidget {
-  FilmCard(
-      {this.movie, this.nota, this.url, this.filme, this.id, this.movieOrtv});
+  FilmCard({this.filme});
 
-  final String url;
-  final String movie;
-  final String nota;
   final Filmes filme;
-  final String id;
-  final String movieOrtv;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +28,7 @@ class FilmCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  imagePoster(url),
+                  imagePoster(filme.posterPath),
                   IconButton(
                     icon: Icon(
                       Icons.favorite,
@@ -55,7 +49,7 @@ class FilmCard extends StatelessWidget {
               ),
               SizedBox(height: 3),
               Text(
-                movie,
+                filme.title ?? 'null',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 style: TextStyle(
@@ -65,7 +59,7 @@ class FilmCard extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Text(
-                nota,
+                filme.voteAverage.toString() ?? 'null',
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.blueGrey,
@@ -75,8 +69,9 @@ class FilmCard extends StatelessWidget {
             ],
           ),
           onTap: () {
-            a.getDetalhes(id: id, movieOrtv: movieOrtv);
-            b.getFilmesSimilares(id: id, movieOrTv: movieOrtv);
+            a.getDetalhes(id: filme.id.toString(), movieOrtv: filme.movieOrTv);
+            b.getFilmesSimilares(
+                id: filme.id.toString(), movieOrTv: filme.movieOrTv);
             Navigator.pushNamed(context, '/filmPage');
           },
         ),

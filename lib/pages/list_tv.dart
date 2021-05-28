@@ -20,12 +20,7 @@ class ListaTV extends StatelessWidget {
               ),
               itemCount: data.devolverTv.length,
               itemBuilder: (context, index) => FilmCard(
-                url: data.devolverTv[index].posterPath,
-                movie: data.devolverTv[index].title,
-                nota: data.devolverTv[index].voteAverage.toString(),
                 filme: data.devolverTv[index],
-                id: data.devolverTv[index].id.toString(),
-                movieOrtv: data.devolverTv[index].movieOrTv,
               ),
             )
           : Center(child: CircularProgressIndicator()),
